@@ -1,0 +1,33 @@
+html {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background: url("./public/background_illustration.png") no-repeat center
+    center fixed;
+  background-size: cover;
+}
+
+body {
+  font-family: "Kaisei HarunoUmi", serif;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#quote-generator-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #bebebe;
+  background-color: rgba(0, 0, 0, 0.075);
+  backdrop-filter: blur(2px);
+  border-radius: 10px;
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.651);
+  /* height: 30%; */
+  /* width: 75%; */
+  justify-content: center;
+  align-items: center;
+}

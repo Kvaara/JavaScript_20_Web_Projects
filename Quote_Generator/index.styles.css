@@ -18,10 +18,14 @@ body {
   align-items: center;
 }
 
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
 #quote-generator-container {
   display: flex;
   flex-direction: column;
-  border: 1px solid #000;
   background-color: rgba(0, 0, 0, 40%);
   backdrop-filter: blur(2px);
   border-radius: 10px;
@@ -30,12 +34,12 @@ body {
   /* width: 75%; */
   justify-content: center;
   align-items: center;
-  padding: 0px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
   max-width: 900px;
 }
 
 #quote-row {
-  font-size: 26px;
+  text-align: center;
 }
 
 #quote {
@@ -43,23 +47,104 @@ body {
   font-size: 2.75rem;
 }
 
-#left-quotation,
-#right-quotation {
+#left-quotation {
   position: relative;
-  top: 9px;
-  font-size: 70px;
-  font-weight: 700;
+  right: 5px;
+  width: 42px;
+  height: 42px;
+  transform: scale(1.3);
 }
 
 #author-row {
   text-align: center;
+  margin-top: 10px;
   font-weight: 700;
   letter-spacing: 2px;
-  font-size: 20px;
+  font-size: 1.7rem;
+  color: #ffe48b;
+  font-style: italic;
 }
 
 #button-row {
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
   width: 100%;
+  user-select: none;
+}
+
+#tweet {
+  border-radius: 30px;
+  border: none;
+  height: 55px;
+  width: 55px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0.3rem rgb(24 24 24 / 65%);
+  background-color: #fff;
+  transition: background-color 100ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 100ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 100ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#tweet:hover {
+  background-color: #ffe48b;
+}
+
+#tweet img {
+  position: relative;
+  top: 1px;
+  transform: scale(1.5);
+}
+
+#tweet:hover img {
+  transform: scale(1.6);
+}
+
+#new-quote {
+  font-size: 1.2rem;
+  border-radius: 7px;
+  padding: 0px 12px;
+  letter-spacing: 0.5px;
+  height: 2.5rem;
+  align-self: center;
+  cursor: pointer;
+  border: none;
+  width: 135px;
+  box-shadow: 0 0.3rem rgb(24 24 24 / 65%);
+  background-color: #fff;
+  transition: background-color 100ms cubic-bezier(0.4, 0, 0.2, 1),
+    letter-spacing 100ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 100ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 100ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#new-quote:hover {
+  background-color: #ffe48b;
+  letter-spacing: 0px;
+}
+
+#new-quote:active,
+#tweet:active {
+  transform: translateY(0.3rem);
+  box-shadow: 0 0.3rem rgba(0, 0, 0, 0);
+}
+
+/* Media query for tablets */
+@media screen and (max-width: 975px) {
+  #quote-generator-container {
+    margin: auto 15px;
+  }
+
+  #quote {
+    font-size: 2.4rem;
+  }
+
+  #author-row {
+    font-size: 1.4rem;
+  }
+
+  #left-quotation {
+    transform: scale(1.15);
+  }
 }

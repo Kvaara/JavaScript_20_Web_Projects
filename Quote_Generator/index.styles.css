@@ -21,7 +21,7 @@ body {
 #quote-generator-container {
   display: flex;
   flex-direction: column;
-  border: 1px solid #bebebe;
+  border: 1px solid #000;
   background-color: rgba(0, 0, 0, 0.075);
   backdrop-filter: blur(2px);
   border-radius: 10px;
@@ -30,4 +30,34 @@ body {
   /* width: 75%; */
   justify-content: center;
   align-items: center;
+  padding: 0px 20px 20px 20px;
+}
+
+#quote-row {
+  font-size: 26px;
+}
+
+#quote {
+  color: #fff;
+}
+
+#left-quotation,
+#right-quotation {
+  position: relative;
+  top: 9px;
+  font-size: 70px;
+  font-weight: 700;
+}
+
+#author-row {
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
+#button-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }

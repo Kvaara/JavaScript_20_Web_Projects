@@ -17,12 +17,29 @@ const fetchAQuote = async () => {
   }
 };
 
-// Implement the new quote button functionality
+// Update the quote randomly by using the fetchAQuote function
 const newQuoteBtn = document.querySelector("#new-quote");
 const authorSpan = document.querySelector("#author");
 const quoteSpan = document.querySelector("#quote");
-newQuoteBtn.addEventListener("click", async () => {
+const updateQuote = async () => {
   const { author, content, length } = await fetchAQuote();
-  authorSpan.textContent = `― ${author}`;
+  // Just in case the author is of a null/undefined value
+  if (author.length === 0) {
+    authorSpan.textContent = `― Unknown`;
+  } else {
+    authorSpan.textContent = `― ${author}`;
+  }
+
+  if (content.length > 130) {
+  }
   quoteSpan.textContent = content;
+};
+
+// Implement the new quote button functionality
+newQuoteBtn.addEventListener("click", async () => {
+  updateQuote();
+});
+
+window.addEventListener("load", () => {
+  updateQuote();
 });

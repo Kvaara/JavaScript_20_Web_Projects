@@ -132,6 +132,32 @@ img {
   box-shadow: 0 0.3rem rgba(0, 0, 0, 0);
 }
 
+#loading-spinner {
+  display: inline-block;
+  transform: scale(1.5);
+}
+
+#loading-spinner:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 600ms linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* Media query for tablets */
 @media screen and (max-width: 975px) {
   #quote-generator-container {

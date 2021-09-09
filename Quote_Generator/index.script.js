@@ -1,11 +1,26 @@
 // Add the correct elements from the DOM to JavaScript const variables
+const container = document.querySelector("#quote-generator-container");
 const authorSpan = document.querySelector("#author");
 const quoteSpan = document.querySelector("#quote");
 const newQuoteBtn = document.querySelector("#new-quote");
 const tweetQuoteBtn = document.querySelector("#tweet");
+const loadingSpinner = document.querySelector("#loading-spinner");
+
+// Show the loading spinner
+const showLoading = () => {
+  loadingSpinner.style.display = "flex";
+  container.style.display = "none";
+};
+
+// Hide the loading spinner
+const hideLoading = () => {
+  container.style.display = "";
+  loadingSpinner.style.display = "none";
+};
 
 // First we're getting the quotes form an API
 const fetchAQuote = async () => {
+  showLoading();
   const apiUrl = "https://quotable.io/random";
   try {
     const response = await fetch(apiUrl, {
@@ -25,6 +40,7 @@ const fetchAQuote = async () => {
 
 // Update the quote randomly by using the fetchAQuote function
 const updateQuote = async () => {
+  showLoading();
   const { author, content, length } = await fetchAQuote();
   // Just in case the author is of a null/undefined value
   if (author.length === 0) {
@@ -39,6 +55,7 @@ const updateQuote = async () => {
     quoteSpan.classList.remove("smaller");
   }
   quoteSpan.textContent = content;
+  hideLoading();
 };
 
 // Function that handles the tweeting of a quote

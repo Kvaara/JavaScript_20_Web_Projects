@@ -1,3 +1,9 @@
+// Add the correct elements from the DOM to JavaScript const variables
+const authorSpan = document.querySelector("#author");
+const quoteSpan = document.querySelector("#quote");
+const newQuoteBtn = document.querySelector("#new-quote");
+const tweetQuoteBtn = document.querySelector("#tweet");
+
 // First we're getting the quotes form an API
 const fetchAQuote = async () => {
   const apiUrl = "https://quotable.io/random";
@@ -18,9 +24,6 @@ const fetchAQuote = async () => {
 };
 
 // Update the quote randomly by using the fetchAQuote function
-const newQuoteBtn = document.querySelector("#new-quote");
-const authorSpan = document.querySelector("#author");
-const quoteSpan = document.querySelector("#quote");
 const updateQuote = async () => {
   const { author, content, length } = await fetchAQuote();
   // Just in case the author is of a null/undefined value
@@ -31,8 +34,17 @@ const updateQuote = async () => {
   }
 
   if (content.length > 130) {
+    quoteSpan.classList.add("smaller");
+  } else {
+    quoteSpan.classList.remove("smaller");
   }
   quoteSpan.textContent = content;
+};
+
+// Function that handles the tweeting of a quote
+const tweetAQuote = () => {
+  const url = `https://twitter.com/intent/tweet?text="${quoteSpan.textContent}"%0A${authorSpan.textContent}`;
+  window.open(url, "_blank");
 };
 
 // Implement the new quote button functionality
@@ -40,6 +52,12 @@ newQuoteBtn.addEventListener("click", async () => {
   updateQuote();
 });
 
+// Implement the tweet quote button functionality
+tweetQuoteBtn.addEventListener("click", () => {
+  tweetAQuote();
+});
+
+// Generate a brand new quote after the page (DOM) is fully loaded.
 window.addEventListener("load", () => {
   updateQuote();
 });

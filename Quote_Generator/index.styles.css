@@ -26,12 +26,10 @@ img {
 #quote-generator-container {
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 40%);
-  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 60%);
+  backdrop-filter: blur(3px);
   border-radius: 10px;
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.651);
-  /* height: 30%; */
-  /* width: 75%; */
   justify-content: center;
   align-items: center;
   padding: 20px 20px 20px 20px;
@@ -45,6 +43,10 @@ img {
 #quote {
   color: #fff;
   font-size: 2.75rem;
+}
+
+#quote.smaller {
+  font-size: 2.1rem;
 }
 
 #left-quotation {

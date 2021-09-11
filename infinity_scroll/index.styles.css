@@ -1,0 +1,35 @@
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Azeret Mono", monospace, sans-serif;
+  background-color: whitesmoke;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#loading-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  background: rgba(255, 255, 255, 0.815);
+}
+
+#loading-spinner > img {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}

@@ -1,0 +1,49 @@
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+* {
+  font-family: "Kaisei Tokumin", serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(37, 37, 37);
+  height: 100%;
+}
+
+#btn-container > button {
+  padding-bottom: 4px;
+  font-size: 30px;
+  letter-spacing: 1.5px;
+  border-radius: 8px;
+  border: 2px solid #000;
+  background-color: white;
+  font-weight: 700;
+  color: rgb(31, 31, 31);
+  text-align: center;
+  width: 140px;
+  cursor: pointer;
+  transition: letter-spacing 100ms ease-in-out, color 100ms ease-in-out,
+    background-color 100ms ease-in-out,
+    box-shadow 100ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.281);
+}
+
+#btn-container > button:hover {
+  letter-spacing: 0px;
+  background-color: rgb(34, 34, 34);
+  color: white;
+}
+
+#btn-container > button:active {
+  transform: scale(0.9);
+  box-shadow: 0px 10px 15px rgba(15, 15, 15, 0);
+}

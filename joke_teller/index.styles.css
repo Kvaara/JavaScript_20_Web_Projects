@@ -1,3 +1,5 @@
+/* ROBOT.GIF from Giphy - https://giphy.com/gifs/robot-cinema-4d-eyedesyn-3o7abtn7DuREEpsyWY */
+
 html {
   margin: 0;
   padding: 0;
@@ -9,4 +11,17 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color: rgb(69, 186, 221);
+}
+
+#flex-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url("./robot.gif");
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
 }

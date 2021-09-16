@@ -15,7 +15,7 @@ body {
 }
 
 * {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Josefin Sans", Helvetica, sans-serif;
 }
 
 #flex-wrapper {

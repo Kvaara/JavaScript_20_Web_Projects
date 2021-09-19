@@ -2,11 +2,11 @@
 const newJokeButton = document.querySelector("#joke-btn");
 const audioElement = document.querySelector("#joke-audio");
 
-// Helper function that builds the text-to-speech using VoiceRSS SDK by using the joke data
-const buildTextToSpeech = ({ setup, delivery }) => {
+// Helper function, which starts the text-to-speech using VoiceRSS SDK by using the joke
+const startTextToSpeech = (joke) => {
   VoiceRSS.speech({
     key: "2d6b81808c2d4fa389a545bc2fd84f4a",
-    src: `${setup} ... ${delivery}`,
+    src: joke,
     hl: "en-us",
     r: 0,
     c: "mp3",
@@ -22,8 +22,17 @@ const fetchAJoke = async () => {
       "https://v2.jokeapi.dev/joke/Programming?type=twopart"
     );
     const data = await response.json();
-    const { setup, delivery } = data;
-    return { setup, delivery };
+    const { setup, delivery, error } = data;
+
+    // Catch the JokeAPI's possible server-side error
+    if (error) {
+      throw new Error(
+        "An error occurred by the JokeAPI's side. Check that the fetch URL parameter is in correct form. If it is, then the JokeAPI might be temporarily down..."
+      );
+    }
+
+    const joke = `${setup} ... ${delivery}`;
+    return joke;
   } catch (err) {
     alert("An error occurred. Sorry about that...");
     console.log(err);
@@ -32,6 +41,8 @@ const fetchAJoke = async () => {
 
 // Click event listener for the "Tell me a joke" button
 newJokeButton.addEventListener("click", async () => {
-  const jokeData = await fetchAJoke();
-  buildTextToSpeech(jokeData);
+  // Fetch a joke using the fetchAJoke function
+  const joke = await fetchAJoke();
+  // Start the text-to-speech using the joke, which was constructed in the fetchAJoke function
+  startTextToSpeech(joke);
 });

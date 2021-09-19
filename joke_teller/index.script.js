@@ -36,11 +36,20 @@ const fetchAJoke = async () => {
   } catch (err) {
     alert("An error occurred. Sorry about that...");
     console.log(err);
+    // Enable the "Tell me a joke" button because there was an error
+    newJokeButton.disabled = false;
   }
 };
 
+// When the joke ends, enable the "Tell me a joke" button
+audioElement.addEventListener("ended", () => {
+  newJokeButton.disabled = false;
+});
+
 // Click event listener for the "Tell me a joke" button
 newJokeButton.addEventListener("click", async () => {
+  // Disable the joke button for the duration of the joke
+  newJokeButton.disabled = true;
   // Fetch a joke using the fetchAJoke function
   const joke = await fetchAJoke();
   // Start the text-to-speech using the joke, which was constructed in the fetchAJoke function
